@@ -1,25 +1,42 @@
 # -*- coding: utf-8 -*-
-"""Selenium smoke test for Tani v2.3.0 — verifies rendered computed styles,
-responsive breakpoints, dark-mode toggle, RTL logical spacing, and screenshots key pages."""
-import os, sys
+"""Selenium smoke test for Tani — verifies rendered computed styles,
+responsive breakpoints, dark-mode toggle, RTL logical spacing, and screenshots key pages.
+Portable: repo root is derived from this file's location; Chrome/Chromium binaries
+are auto-detected or overridden via TANI_CHROME / TANI_CHROMEDRIVER env vars."""
+import os, sys, shutil, time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-ROOT = "/home/kali/Desktop/Tani"
-URL = "file://" + os.path.join(ROOT, "tests/visual/all-components.html")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+URL = "file://" + os.path.join(ROOT, "tests", "visual", "all-components.html")
 DOCS = "file://" + os.path.join(ROOT, "index.html")
-SHOTS = os.path.join(ROOT, "tests/visual/shots")
+SHOTS = os.path.join(ROOT, "tests", "visual", "shots")
 os.makedirs(SHOTS, exist_ok=True)
 
+def find_bin(env_var, *candidates):
+    if os.environ.get(env_var):
+        return os.environ[env_var]
+    for c in candidates:
+        p = shutil.which(c) or (c if os.path.exists(c) else None)
+        if p:
+            return p
+    return None
+
+chrome_bin = find_bin("TANI_CHROME", "chromium", "chromium-browser", "google-chrome", "chrome")
+driver_bin = find_bin("TANI_CHROMEDRIVER", "chromedriver")
+if not chrome_bin or not driver_bin:
+    sys.exit("Chrome/Chromium and chromedriver are required "
+             "(set TANI_CHROME / TANI_CHROMEDRIVER to override).")
+
 o = Options()
-o.binary_location = "/usr/bin/chromium"
+o.binary_location = chrome_bin
 o.add_argument("--headless=new")
 o.add_argument("--no-sandbox")
 o.add_argument("--disable-dev-shm-usage")
 o.set_capability("goog:loggingPrefs", {"browser": "ALL"})
-d = webdriver.Chrome(service=Service("/usr/bin/chromedriver"), options=o)
+d = webdriver.Chrome(service=Service(driver_bin), options=o)
 
 results = []
 def check(name, cond, detail=""):
@@ -73,7 +90,7 @@ t0 = cs(oc, "transform")
 check("offcanvas hidden by default (transformed)", t0 not in ("none", "matrix(1, 0, 0, 1, 0, 0)", "matrix(1,0,0,1,0,0)"), t0)
 # toggle open (checkbox is d-none, so click via JS); wait for 0.3s transition
 d.execute_script("document.getElementById('t-ocToggle').click()")
-import time; time.sleep(0.5)
+time.sleep(0.5)
 t1 = cs(oc, "transform")
 check("offcanvas opens on toggle (transform none/identity)", t1 in ("none", "matrix(1, 0, 0, 1, 0, 0)", "matrix(1,0,0,1,0,0)"), t1)
 check("offcanvas backdrop shown", cs(el("t-ocb"), "display") == "block", cs(el("t-ocb"), "display"))

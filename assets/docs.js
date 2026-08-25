@@ -149,7 +149,7 @@
     var lastType = null;
     hits.forEach(function (h) {
       if (h.type !== lastType) { out += '<div class="sr-group">' + (h.type === "section" ? "Sections" : "Topics") + "</div>"; lastType = h.type; }
-      out += '<a href="#' + h.id + (h.anchor ? "#" + h.anchor : "") + '">' + h.title + "</a>";
+      out += '<a href="#' + h.id + '"' + (h.anchor ? ' data-anchor="' + h.anchor + '"' : "") + ">" + h.title + "</a>";
     });
     results.innerHTML = out; results.classList.add("open");
   }
@@ -159,7 +159,17 @@
     input.addEventListener("input", doSearch);
     input.addEventListener("focus", function () { if (input.value) render(input.value); });
     document.addEventListener("click", function (e) { if (!e.target.closest(".doc-search")) results.classList.remove("open"); });
-    results.addEventListener("click", function (e) { if (e.target.closest("a")) { results.classList.remove("open"); input.value = ""; closeSidebar(); } });
+    results.addEventListener("click", function (e) {
+      var a = e.target.closest("a");
+      if (a) {
+        var anc = a.getAttribute("data-anchor");
+        if (anc) {
+          var target = document.getElementById(anc);
+          if (target) setTimeout(function () { target.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
+        }
+        results.classList.remove("open"); input.value = ""; closeSidebar();
+      }
+    });
     input.addEventListener("keydown", function (e) { if (e.key === "Escape") { results.classList.remove("open"); input.blur(); } });
   }
 })();

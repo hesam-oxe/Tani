@@ -64,7 +64,7 @@
       });
     }
     styleVars += "}";
-    var srcdoc = '<!DOCTYPE html><html data-theme="dark"><head><meta charset="UTF-8"><link rel="stylesheet" href="./dist/css/tani.css"><style>' + styleVars + "</style></head><body>" + pg.value + "</body></html>";
+    var srcdoc = '<!DOCTYPE html><html class="dark-mode"><head><meta charset="UTF-8"><link rel="stylesheet" href="./dist/css/tani.css"><style>' + styleVars + "</style></head><body>" + pg.value + "</body></html>";
     frame.srcdoc = srcdoc;
   }
 
