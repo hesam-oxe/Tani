@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="./assets/docs.css">
 </head>
 <body>
-<a class="sr-only" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="doc-header">
   <button class="doc-icon-btn doc-menu-btn" id="menuToggle" aria-label="Open menu">&#9776;</button>
   <a class="doc-brand" href="#introduction"><span class="logo-mark">T</span>Tani<b>.css</b></a>
   <select class="doc-version" aria-label="Documentation version" onchange="if(this.value) location.hash=this.value;">
-    <option value="">v2.2.0 (current)</option>
+    <option value="">v2.3.1 (current)</option>
     <option value="changelog">v2.3.0</option>
+    <option value="changelog">v2.2.0</option>
     <option value="changelog">v2.1.x</option>
-    <option value="changelog">v2.0.0</option>
   </select>
   <div class="doc-search">
     <span class="search-icon">&#128269;</span>
@@ -60,12 +60,12 @@
 </section>
 <section class="doc-section" id="installation" data-keywords="install cdn download npm setup">
 <h2>Installation <a class="anchor-hash" href="#installation">#</a></h2>
-<h3>CDN</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css&quot;&gt;</code></pre></div><h3>Download</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;./dist/css/tani.css&quot;&gt;</code></pre></div><h3>NPM</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="bash">npm install tanicss</code></pre></div><div class="doc-callout"><span class="ico">💡</span><p>Tani is a single static CSS file. There is nothing to compile — just link it and start using classes.</p></div>
+<h3>CDN</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css&quot;&gt;</code></pre></div><h3>Download</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;./dist/css/tani.css&quot;&gt;</code></pre></div><h3>NPM</h3><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="bash">npm install tanicss</code></pre></div><div class="doc-callout"><span class="ico">💡</span><p>Tani is a single static CSS file. There is nothing to compile — just link it and start using classes.</p></div>
 </section>
 <section class="doc-section" id="quick-start" data-keywords="quickstart hello world first example">
 <h2>Quick Start <a class="anchor-hash" href="#quick-start">#</a></h2>
 <div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; data-theme=&quot;dark&quot;&gt;
+&lt;html lang=&quot;en&quot; class=&quot;dark-mode&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
@@ -96,7 +96,7 @@
 </section>
 <section class="doc-section" id="spacing" data-keywords="spacing margin padding typography font size leading">
 <h2>Spacing & Typography <a class="anchor-hash" href="#spacing">#</a></h2>
-<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Utility</th><th>Example</th></tr></thead><tbody><tr><td><code>m-1</code> / <code>p-1</code></td><td><span class="badge badge-light" style="margin:1px">1</span></td></tr><tr><td><code>m-2</code> / <code>p-2</code></td><td><span class="badge badge-light" style="margin:2px">2</span></td></tr><tr><td><code>m-3</code> / <code>p-3</code></td><td><span class="badge badge-light" style="margin:3px">3</span></td></tr><tr><td><code>m-4</code> / <code>p-4</code></td><td><span class="badge badge-light" style="margin:4px">4</span></td></tr><tr><td><code>m-5</code> / <code>p-5</code></td><td><span class="badge badge-light" style="margin:5px">5</span></td></tr><tr><td><code>m-6</code> / <code>p-6</code></td><td><span class="badge badge-light" style="margin:6px">6</span></td></tr></tbody></table></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="css">.text-3xl { font-size: clamp(1.875rem, 1.5rem + 1.875vw, 3rem); }
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Utility</th><th>Value</th></tr></thead><tbody><tr><td><code>m-1</code> / <code>p-1</code></td><td><code>0.25rem</code></td></tr><tr><td><code>m-2</code> / <code>p-2</code></td><td><code>0.5rem</code></td></tr><tr><td><code>m-3</code> / <code>p-3</code></td><td><code>0.75rem</code></td></tr><tr><td><code>m-4</code> / <code>p-4</code></td><td><code>1rem</code></td></tr><tr><td><code>m-5</code> / <code>p-5</code></td><td><code>1.25rem</code></td></tr><tr><td><code>m-6</code> / <code>p-6</code></td><td><code>1.5rem</code></td></tr></tbody></table></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="doc-copy">Copy</button></div><pre><code data-lang="css">.text-3xl { font-size: clamp(1.875rem, 1.5rem + 1.875vw, 3rem); }
 .leading-relaxed { line-height: 1.625; }</code></pre></div>
 </section>
 <section class="doc-section" id="utilities" data-keywords="utilities spacing flex grid display border shadow transform ring">
@@ -120,7 +120,8 @@
   <input class="tab-input" type="radio" name="t1" id="t1a" checked><label class="tab-label" for="t1a">One</label>
   <input class="tab-input" type="radio" name="t1" id="t1b"><label class="tab-label" for="t1b">Two</label>
   <div class="tab-panels"><div class="tab-panel">Panel one</div><div class="tab-panel">Panel two</div></div>
-</div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;tabs&quot;&gt;…&lt;/div&gt;</code></pre></div><h3>Dropdown (focus)</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="dropdown"><button class="btn btn-secondary dropdown-toggle">Menu</button><ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Action</a></li><li><a class="dropdown-item" href="#">Another</a></li></ul></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;dropdown&quot;&gt;…&lt;ul class=&quot;dropdown-menu&quot;&gt;…&lt;/ul&gt;&lt;/div&gt;</code></pre></div><h3>Modal (native dialog)</h3><div class="doc-demo"><div class="doc-demo-preview"><button class="btn btn-primary" onclick="document.getElementById('demoModal').showModal()">Open modal</button><dialog id="demoModal" class="modal"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Title</h3><button class="modal-close" onclick="document.getElementById('demoModal').close()">&times;</button></div><div class="modal-body">Modal body content.</div></div></dialog></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;dialog class=&quot;modal&quot; id=&quot;m&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;…&lt;/div&gt;&lt;/dialog&gt;</code></pre></div><h3>Toast</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="toast-container top-right"><div class="toast show toast-primary"><div class="toast-header"><strong>Notification</strong></div><div class="toast-body">Saved successfully.</div></div></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;toast show toast-primary&quot;&gt;…&lt;/div&gt;</code></pre></div><h3>Accordion</h3><div class="doc-demo"><div class="doc-demo-preview"><details class="accordion-item"><summary>Click to expand</summary><div><p>Native details element, zero JS.</p></div></details></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;details class=&quot;accordion-item&quot;&gt;&lt;summary&gt;…&lt;/summary&gt;&lt;div&gt;…&lt;/div&gt;&lt;/details&gt;</code></pre></div><h3>Tooltip</h3><div class="doc-demo"><div class="doc-demo-preview"><button class="btn btn-primary" data-tooltip="I am a tooltip">Hover me</button><button class="btn btn-primary" data-tooltip="bottom">Bottom</button></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;button data-tooltip=&quot;Hi&quot;&gt;Hover&lt;/button&gt;</code></pre></div><h3>Avatars</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="avatar">AB</div><div class="avatar avatar-status"><span style="font-size:0">x</span></div><div class="avatar-group"><div class="avatar">A</div><div class="avatar">B</div><div class="avatar">C</div></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;avatar&quot;&gt;AB&lt;/div&gt;</code></pre></div><h3>Timeline & Steps</h3><div class="doc-demo"><div class="doc-demo-preview"><ol class="timeline"><li class="timeline-item"><span class="timeline-marker">1</span><div class="timeline-content"><h4>Step</h4></div></li></ol><ol class="steps"><li class="step step-done"><span class="step-label">Done</span></li><li class="step step-active"><span class="step-label">Active</span></li></ol></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;ol class=&quot;timeline&quot;&gt;…&lt;/ol&gt;</code></pre></div><h3>List group & Input group</h3><div class="doc-demo"><div class="doc-demo-preview"><ul class="list-group" style="max-width:280px"><li class="list-group-item active">Active</li><li class="list-group-item">Item</li></ul><div class="input-group" style="max-width:320px"><span class="input-group-text">@</span><input class="form-control" placeholder="username"></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;ul class=&quot;list-group&quot;&gt;…&lt;/ul&gt;</code></pre></div>
+</div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;tabs&quot;&gt;…&lt;/div&gt;</code></pre></div><h3>Dropdown (focus)</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="dropdown"><button class="btn btn-secondary dropdown-toggle">Menu</button><ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Action</a></li><li><a class="dropdown-item" href="#">Another</a></li></ul></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;dropdown&quot;&gt;…&lt;ul class=&quot;dropdown-menu&quot;&gt;…&lt;/ul&gt;&lt;/div&gt;</code></pre></div><h3>Modal (native dialog)</h3><div class="doc-demo"><div class="doc-demo-preview"><button class="btn btn-primary" onclick="document.getElementById('demoModal').showModal()">Open modal</button><dialog id="demoModal" class="modal"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Title</h3><button class="modal-close" onclick="document.getElementById('demoModal').close()">&times;</button></div><div class="modal-body">Modal body content.</div></div></dialog></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;dialog class=&quot;modal&quot; id=&quot;m&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;…&lt;/div&gt;&lt;/dialog&gt;</code></pre></div><h3>Toast</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="toast-container top-right"><div class="toast show toast-primary"><div class="toast-header"><strong>Notification</strong></div><div class="toast-body">Saved successfully.</div></div></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;toast show toast-primary&quot;&gt;…&lt;/div&gt;</code></pre></div><h3>Accordion</h3><div class="doc-demo"><div class="doc-demo-preview"><details class="accordion-item"><summary>Click to expand</summary><div><p>Native details element, zero JS.</p></div></details></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;details class=&quot;accordion-item&quot;&gt;&lt;summary&gt;…&lt;/summary&gt;&lt;div&gt;…&lt;/div&gt;&lt;/details&gt;</code></pre></div><h3>Tooltip</h3><div class="doc-demo"><div class="doc-demo-preview"><button class="btn btn-primary" data-tooltip="I am a tooltip">Hover me</button><button class="btn btn-primary" data-tooltip="Below you" data-tooltip-pos="bottom">Bottom</button></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;button data-tooltip=&quot;Hi&quot;&gt;Hover&lt;/button&gt;
+&lt;button data-tooltip=&quot;Hi&quot; data-tooltip-pos=&quot;bottom&quot;&gt;Bottom&lt;/button&gt;</code></pre></div><h3>Avatars</h3><div class="doc-demo"><div class="doc-demo-preview"><div class="avatar">AB</div><div class="avatar avatar-status"><span style="font-size:0">x</span></div><div class="avatar-group"><div class="avatar">A</div><div class="avatar">B</div><div class="avatar">C</div></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;div class=&quot;avatar&quot;&gt;AB&lt;/div&gt;</code></pre></div><h3>Timeline & Steps</h3><div class="doc-demo"><div class="doc-demo-preview"><ol class="timeline"><li class="timeline-item"><span class="timeline-marker">1</span><div class="timeline-content"><h4>Step</h4></div></li></ol><ol class="steps"><li class="step step-done"><span class="step-label">Done</span></li><li class="step step-active"><span class="step-label">Active</span></li></ol></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;ol class=&quot;timeline&quot;&gt;…&lt;/ol&gt;</code></pre></div><h3>List group & Input group</h3><div class="doc-demo"><div class="doc-demo-preview"><ul class="list-group" style="max-width:280px"><li class="list-group-item active">Active</li><li class="list-group-item">Item</li></ul><div class="input-group" style="max-width:320px"><span class="input-group-text">@</span><input class="form-control" placeholder="username"></div></div><div class="doc-demo-bar"><span class="tag">preview</span></div></div><div class="doc-code"><div class="doc-code-bar"><span class="dots"><i></i><i></i><i></i></span><span>Live demo</span><button class="doc-copy">Copy</button></div><pre><code data-lang="html">&lt;ul class=&quot;list-group&quot;&gt;…&lt;/ul&gt;</code></pre></div>
 </section>
 <section class="doc-section" id="popover" data-keywords="popover tooltip hover focus glass gold direction">
 <h2>Popover <a class="anchor-hash" href="#popover">#</a></h2>
@@ -337,7 +338,7 @@
 <section class="doc-section" id="templates" data-keywords="templates gallery landing dashboard blog admin login pricing portfolio docs ecommerce 404 download">
 <h2>Templates <a class="anchor-hash" href="#templates">#</a></h2>
 <p>Ten production-ready page templates built with <strong>nothing but Tani</strong>. Preview renders live; download a standalone HTML file (links the CDN build) with one click.</p><div class="doc-tpl-grid"><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Landing — Tani</title>
@@ -360,7 +361,7 @@
 </section>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Landing Page</h4><div class="acts"><button class="pg-dl" data-key="landing">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Dashboard — Tani</title>
@@ -384,7 +385,7 @@
 </main></div>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Dashboard</h4><div class="acts"><button class="pg-dl" data-key="dashboard">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Blog — Tani</title>
@@ -400,7 +401,7 @@
 </main>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Blog</h4><div class="acts"><button class="pg-dl" data-key="blog">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Admin — Tani</title>
@@ -421,7 +422,7 @@
 </main></div>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Admin Panel</h4><div class="acts"><button class="pg-dl" data-key="admin">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Login — Tani</title>
@@ -442,7 +443,7 @@
 </div>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Login</h4><div class="acts"><button class="pg-dl" data-key="login">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Pricing — Tani</title>
@@ -461,7 +462,7 @@
 </section>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Pricing</h4><div class="acts"><button class="pg-dl" data-key="pricing">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Portfolio — Tani</title>
@@ -480,7 +481,7 @@
 </section>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Portfolio</h4><div class="acts"><button class="pg-dl" data-key="portfolio">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Docs — Tani</title>
@@ -499,7 +500,7 @@
 </main></div>
 </body>
 </html>"></iframe></div><div class="meta"><h4>Documentation</h4><div class="acts"><button class="pg-dl" data-key="docs">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>Shop — Tani</title>
@@ -517,7 +518,7 @@
 </main>
 </body>
 </html>"></iframe></div><div class="meta"><h4>E-commerce</h4><div class="acts"><button class="pg-dl" data-key="ecommerce">Download</button></div></div></div><div class="doc-tpl"><div class="thumb"><iframe loading="lazy" srcdoc="<!DOCTYPE html>
-<html lang=&quot;en&quot; data-theme=&quot;dark&quot;>
+<html lang=&quot;en&quot; class=&quot;dark-mode&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
 <title>404 — Tani</title>
@@ -533,11 +534,11 @@
 </div>
 </body>
 </html>"></iframe></div><div class="meta"><h4>404 Page</h4><div class="acts"><button class="pg-dl" data-key="error">Download</button></div></div></div></div><div id="tplStore" style="display:none"><textarea data-key="landing">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Landing — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -556,11 +557,11 @@
 &amp;lt;/section&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="dashboard">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Dashboard — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -580,11 +581,11 @@
 &amp;lt;/main&amp;gt;&amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="blog">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Blog — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -596,11 +597,11 @@
 &amp;lt;/main&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="admin">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Admin — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -617,11 +618,11 @@
 &amp;lt;/main&amp;gt;&amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="login">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Login — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -638,11 +639,11 @@
 &amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="pricing">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Pricing — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -657,11 +658,11 @@
 &amp;lt;/section&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="portfolio">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Portfolio — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -676,11 +677,11 @@
 &amp;lt;/section&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="docs">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Docs — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -695,11 +696,11 @@
 &amp;lt;/main&amp;gt;&amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="ecommerce">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;Shop — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -713,11 +714,11 @@
 &amp;lt;/main&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;</textarea><textarea data-key="error">&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en" data-theme="dark"&amp;gt;
+&amp;lt;html lang="en" class="dark-mode"&amp;gt;
 &amp;lt;head&amp;gt;
 &amp;lt;meta charset="UTF-8"&amp;gt;&amp;lt;meta name="viewport" content="width=device-width, initial-scale=1"&amp;gt;
 &amp;lt;title&amp;gt;404 — Tani&amp;lt;/title&amp;gt;
-&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css"&amp;gt;
+&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css"&amp;gt;
 &amp;lt;style&amp;gt;body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}&amp;lt;/style&amp;gt;
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;

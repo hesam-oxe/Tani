@@ -1,23 +1,36 @@
-```markdown
 <div align="center">
 
 # 🚀 Tani CSS Framework
 
-### The Most Advanced CSS Framework in History — God Mode Edition
+### The Advanced Zero-JS, Zero-Build CSS Framework
 
-[![Version](https://img.shields.io/badge/version-2.3.0-orange?style=for-the-badge&logo=semver)](https://github.com/TaniCSS/Tani/releases)
+[![Version](https://img.shields.io/badge/version-2.3.1-orange?style=for-the-badge&logo=semver)](https://github.com/TaniCSS/Tani/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
-[![Size](https://img.shields.io/badge/min-~80KB-green?style=for-the-badge)](https://github.com/TaniCSS/Tani)
-[![Size](https://img.shields.io/badge/gzip-~14KB-green?style=for-the-badge)](https://github.com/TaniCSS/Tani)
+[![Size](https://img.shields.io/badge/min-~183KB-green?style=for-the-badge)](https://github.com/TaniCSS/Tani)
+[![Size](https://img.shields.io/badge/gzip-~32KB-green?style=for-the-badge)](https://github.com/TaniCSS/Tani)
 [![CSS Modern](https://img.shields.io/badge/CSS-Modern%202026-purple?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Zero JS](https://img.shields.io/badge/Zero-JS%20Components-red?style=for-the-badge)](#-god-mode-features)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 **A lightweight, utility-first CSS framework with God Mode features that no other framework offers.**
 
-[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [✨ Features](#-god-mode-features) • [📊 Comparison](#-comparison) • [🎯 Examples](#-examples) • [🆕 v2.1](#-whats-new-in-v21)
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [✨ Features](#-god-mode-features) • [📊 Comparison](#-comparison) • [🎯 Examples](#-examples) • [🤝 Contributing](CONTRIBUTING.md)
 
 </div>
+
+---
+
+## 🆕 What's New in v2.3.1 (bug-fix release)
+
+A full audit of the stylesheet and docs. Highlights:
+
+- 🐛 **Fixed** `.animate-pulse-slow` (referenced keyframes that didn't exist), gradient utilities (`from/to` now have fallbacks, `via-*` actually works via `color-mix`), `.drop-shadow` (now consumed by the `.filter` chain), and the `backdrop-blur-*` regression (standalone again, still composable with `.backdrop`)
+- 🐛 **Fixed** undefined `--text` / `--text-muted` tokens that silently broke navbar brands, sidebar links, floating labels, `.lead`, figure captions
+- ✨ **Real zero-JS wiring**: mobile navbar toggle (`navbar-toggle-check` checkbox pattern), offcanvas open/close + backdrop (`offcanvas-check`), toast close button (`toast:has(.toast-hide-check:checked)` via `:has()`)
+- 🧹 **Deduplicated**: forms/modal/pagination/progress/nav sections existed 2–3× each with conflicting values — one canonical definition now wins everywhere
+- 📐 **One spacing scale**: `m-1…m-12` now use the design-token scale (0.25 → 3rem, monotonic) consistently across base and responsive-prefixed utilities
+- ♻️ Removed ~800 lines of dead/duplicate rules; minified build regenerated from source (`tools/minify.py`)
+- 🌐 RTL-safe divide utilities restored to logical properties; tooltips gained a non-colliding `data-tooltip-pos` attribute; tabs support up to 6 panels; `.display-1..3` added
 
 ---
 
@@ -27,7 +40,7 @@ The "completeness" release — closing the gap with Tailwind v4, Bootstrap 5, an
 
 - ✅ **Logical spacing** — `ms-/me-/ps-/pe-*` (RTL-safe margins & padding)
 - ✅ **Full Sizing scale** — numeric `w-/h-*` (1–96), `size-*`, `min-w/h-*`, `max-w/h-*` (prose/sm–2xl/screen)
-- ✅ **Filters** — `blur`, `brightness`, `contrast`, `grayscale`, `invert`, `saturate`, `sepia`, `hue-rotate` + `backdrop-blur` (all combinable)
+- ✅ **Filters** — `blur`, `brightness`, `contrast`, `grayscale`, `invert`, `saturate`, `sepia`, `hue-rotate` + `backdrop-blur` (combine multiple with the `.filter` / `.backdrop` classes)
 - ✅ **Transforms** — per-axis `translate-x/y`, `rotate`, `scale-x/y`, `skew-x/y`, `origin-*`, `transform-gpu`
 - ✅ **Transitions** — property variants + full `duration-*` / `delay-*` / `ease-*`
 - ✅ **Interactivity** — `appearance-none`, `resize`, `select-*`, `will-change-*`, `cursor-*`, `pointer-events-*`
@@ -41,26 +54,6 @@ The "completeness" release — closing the gap with Tailwind v4, Bootstrap 5, an
 
 ---
 
-## 🆕 What's New in v2.1
-
-A complete utility library + 10 new zero-JS components, with every bug from v2.0 fixed:
-
-- ✅ **12-column Grid system** (`grid-cols-1..12`, `col-span-*`, `gap-*`)
-- ✅ **Full Flexbox helpers** (`flex-1`, `flex-grow-*`, `align-self-*`, `order-*`)
-- ✅ **Complete spacing scale** (0–5, 6, 8, 10, 12, auto, px — all logical properties)
-- ✅ **Typography scale** (`text-xs..7xl`, `font-*`, `leading-*`, `tracking-*`)
-- ✅ **Full OKLCH color utilities** (`bg-*`, `text-*`, `border-*` for the whole palette)
-- ✅ **Shadows & Glows** (`shadow-xs..2xl`, `glow`, `glow-*`)
-- ✅ **Transforms & Transitions** (`scale-*`, `rotate-*`, `translate-*`, `duration-*`, `ease-*`)
-- ✅ **Z-index, overflow, opacity, position + inset utilities**
-- ✅ **Zero-JS Tabs** (`:checked` + radio inputs)
-- ✅ **Zero-JS Tooltips** (`data-tooltip` attributes)
-- ✅ **Toggle switch** (accessible checkbox-based)
-- ✅ **Skeletons, Avatars (+status), Stat cards, Timeline, Steps/Wizard**
-- ✅ **Print styles & high-contrast mode**
-
----
-
 ## 🎯 Overview
 
 Tani is a **next-generation CSS framework** that combines the best of modern CSS features with a utility-first approach. Built with **2026 standards**, it includes features that **no other framework offers**:
@@ -68,7 +61,7 @@ Tani is a **next-generation CSS framework** that combines the best of modern CSS
 - ✅ **Scroll-Driven Animations** (Pure CSS, no JS)
 - ✅ **Container Queries** (Component-aware responsiveness)
 - ✅ **OKLCH Color System** (Perceptually uniform colors with auto-generated variants)
-- ✅ **Zero-JS Components** (Modal, Accordion, Dropdown, Tabs, Tooltip using native HTML)
+- ✅ **Zero-JS Components** (Modal, Accordion, Dropdown, Tabs, Tooltip, Offcanvas, Toast using native HTML/CSS)
 - ✅ **Native Dark Mode** (System-preference based, zero JS)
 - ✅ **RTL/LTR Support** (Logical Properties, built-in)
 - ✅ **Fluid Typography** (clamp-based scaling, no media queries)
@@ -85,9 +78,9 @@ Tani is a **next-generation CSS framework** that combines the best of modern CSS
 
 ### Installation
 
-**Option 1: CDN (Coming Soon)**
+**Option 1: CDN**
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.0/dist/css/tani.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TaniCSS/Tani@v2.3.1/dist/css/tani.min.css">
 ```
 
 **Option 2: Download**
@@ -104,11 +97,10 @@ npm install tanicss
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">   <!-- or omit the class to follow the OS setting -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
     <link rel="stylesheet" href="./dist/css/tani.css">
 </head>
 <body>
@@ -198,19 +190,17 @@ Perceptually uniform colors with **automatic hover states**:
 
 ### 4. ⚡ Zero-JS Components
 
-Modals, accordions, and dropdowns work **without JavaScript**:
+Modals, accordions, dropdowns and offcanvas panels work **without JavaScript**:
 
 ```html
-<!-- Native Modal (using <dialog>) -->
-<button onclick="document.getElementById('myModal').showModal()">
-    Open Modal
-</button>
+<!-- Pure-CSS modal (:target — zero JS) -->
+<a class="btn btn-primary" href="#myModal">Open Modal</a>
 
-<dialog id="myModal" class="modal">
+<dialog id="myModal" class="modal">          <!-- native <dialog> also supported -->
     <div class="modal-content">
         <h3>Modal Title</h3>
         <p>Modal content here...</p>
-        <button onclick="document.getElementById('myModal').close()">Close</button>
+        <a class="btn btn-secondary" href="#">Close</a>
     </div>
 </dialog>
 ```
@@ -239,14 +229,14 @@ Automatically adapts to system preferences — **no toggle needed**:
 
 ```css
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not(.light-mode) {
         --body-bg: oklch(15% 0.01 250);
         --body-color: oklch(95% 0.01 250);
     }
 }
 ```
 
-Just include Tani, and dark mode works automatically based on the user's OS settings.
+Just include Tani, and dark mode works automatically based on the user's OS settings. Force either mode with the `dark-mode` / `light-mode` classes on `<html>`.
 
 ---
 
@@ -288,12 +278,6 @@ Smooth scaling from mobile to 4K using `clamp()`:
 }
 ```
 
-**Benefits:**
-- No media queries needed
-- Perfect scaling on all devices
-- Better readability
-- Smaller CSS file
-
 ---
 
 ### 8. 🐛 Debug Mode
@@ -324,11 +308,6 @@ Smart tooltips that automatically find the best position:
 }
 ```
 
-**Benefits:**
-- Tooltips automatically flip if there's no space
-- No JavaScript positioning calculations
-- Works responsively
-
 ---
 
 ### 10. 🚀 GPU-Accelerated Utilities
@@ -349,30 +328,26 @@ Hardware-accelerated animations for 60fps performance:
 
 ## 📊 Comparison
 
-| Feature | Tani v2.1 | Tailwind v4 | Bootstrap 5 | Bulma |
-|---------|-----------|-------------|-------------|-------|
+| Feature | Tani 2.3 | Tailwind v4 | Bootstrap 5 | Bulma |
+|---------|----------|-------------|-------------|-------|
 | **Scroll-Driven Animations** | ✅ | ❌ | ❌ | ❌ |
-| **Container Queries** | ✅ | ❌ | ❌ | ❌ |
-| **OKLCH Colors** | ✅ | ❌ | ❌ | ❌ |
-| **Zero-JS Modal** | ✅ | ❌ | ❌ | ❌ |
-| **Zero-JS Accordion** | ✅ | ❌ | ❌ | ❌ |
+| **Container Queries** | ✅ | ✅ | ❌ | ❌ |
+| **OKLCH Colors** | ✅ | ✅ | ❌ | ❌ |
+| **Ships interactive components with no JS runtime** | ✅ | ❌ | ❌ (JS bundle) | ❌ (JS bundle) |
 | **Native RTL/LTR** | ✅ | ⚠️ Plugin | ⚠️ Partial | ✅ |
-| **Native Dark Mode** | ✅ | ✅ | ❌ | ❌ |
+| **Native Dark Mode** | ✅ | ✅ | ✅ | ❌ |
 | **Debug Mode** | ✅ | ❌ | ❌ | ❌ |
 | **Anchor Positioning** | ✅ | ❌ | ❌ | ❌ |
-| **Zero-JS Tabs** | ✅ | ❌ | ❌ | ❌ |
-| **Zero-JS Tooltips** | ✅ | ❌ | ❌ | ❌ |
 | **Grid System** | ✅ | ✅ | ✅ | ✅ |
-| **Skeletons & Avatars** | ✅ | ✅ | ❌ | ❌ |
-| **Timeline & Steps** | ✅ | ❌ | ❌ | ❌ |
-| **Size (Gzip)** | ~14KB | ~10KB | ~25KB | ~20KB |
-| **JS Dependency** | ❌ None | ⚠️ Purge | ✅ Bundle | ❌ None |
+| **Skeletons & Avatars** | ✅ | Manual | ❌ | ❌ |
+| **Timeline & Steps** | ✅ | Manual | ❌ | ❌ |
+| **Build step required** | ❌ None | ✅ CLI (or CDN play) | ❌ (CDN) | ❌ (CDN) |
+
+*Honest footnote:* Tailwind ships no components at all (it's a utility language), so the "zero-JS components" row compares Tani against frameworks that ship component libraries requiring JavaScript runtimes.
 
 ---
 
 ## 🎨 Components
-
-Tani includes a comprehensive set of components:
 
 ### Buttons
 
@@ -409,8 +384,8 @@ Tani includes a comprehensive set of components:
 ```html
 <form>
     <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="name@example.com">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="name@example.com">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
@@ -437,23 +412,22 @@ Tani includes a comprehensive set of components:
 </table>
 ```
 
-### Navigation
+### Navigation (with zero-JS mobile menu)
+
+The toggler is a `<label>` for a hidden checkbox placed before `.navbar-collapse`. Checking it opens the menu below `lg`; at `≥992px` the bar is always expanded.
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Tani</a>
-        <button class="navbar-toggler" type="button">
+        <input type="checkbox" id="navToggle" class="navbar-toggle-check">
+        <label class="navbar-toggler" for="navToggle">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </label>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
             </ul>
         </div>
     </div>
@@ -462,12 +436,16 @@ Tani includes a comprehensive set of components:
 
 ### Modals (Zero-JS)
 
+`:target` opens it, navigating back closes it — or use the native `<dialog>` element if you don't mind one `showModal()` call.
+
 ```html
+<a class="btn btn-primary" href="#myModal">Open</a>
+
 <dialog id="myModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Modal Title</h5>
-            <button onclick="document.getElementById('myModal').close()">&times;</button>
+            <a class="btn-close" href="#" aria-label="Close"></a>
         </div>
         <div class="modal-body">
             <p>Modal content here...</p>
@@ -493,12 +471,17 @@ Tani includes a comprehensive set of components:
 
 ### Spacing
 
+The spacing scale is token-driven and monotonic: **0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3 rem** for steps `0 1 2 3 4 5 6 8 10 12` (+ `auto`, `px`). The same scale applies to responsive-prefixed variants.
+
 ```html
-<div class="m-3">Margin 1rem</div>
-<div class="p-4">Padding 1.5rem</div>
-<div class="mt-2 mb-3">Margin top 0.5rem, bottom 1rem</div>
+<div class="m-3">Margin 0.75rem</div>
+<div class="p-4">Padding 1rem</div>
+<div class="mt-2 mb-3">Margin top 0.5rem, bottom 0.75rem</div>
 <div class="mx-auto">Centered horizontally</div>
+<div class="ms-4 me-4">RTL-safe logical margins (16px)</div>
 ```
+
+> **Note:** `ms-/me-/ps-/pe-*` are the full-scale logical (RTL-aware) families. The legacy physical-named `ml-/mr-/pl-/pr-*` map onto inline start/end and cover steps 0–12 + auto.
 
 ### Display
 
@@ -521,6 +504,13 @@ Tani includes a comprehensive set of components:
 ```html
 <div class="bg-primary text-white p-3">Primary background</div>
 <div class="bg-success text-white p-3">Success background</div>
+```
+
+### Gradients
+
+```html
+<div class="bg-gradient-to-r from-primary to-gold p-3">Primary → Gold</div>
+<div class="bg-gradient-to-b from-primary via-danger to-gold p-3">With a via stop</div>
 ```
 
 ## 📐 Grid & Flexbox
@@ -549,7 +539,7 @@ Tani includes a comprehensive set of components:
 
 ## 🆕 Zero-JS Components
 
-### Tabs (via `:checked`)
+### Tabs (via `:checked`, up to 6 panels)
 
 ```html
 <div class="tabs">
@@ -564,11 +554,14 @@ Tani includes a comprehensive set of components:
 </div>
 ```
 
-### Tooltips (via `data-tooltip`)
+### Tooltips (via `data-tooltip` + optional position)
+
+The attribute value is the tooltip text; position is a separate attribute so it never collides with your copy:
 
 ```html
 <button class="btn btn-primary" data-tooltip="I'm a tooltip">Hover me</button>
-<button data-tooltip="bottom">Bottom</button>
+<button data-tooltip="I'm below" data-tooltip-pos="bottom">Bottom</button>
+<button data-tooltip="I'm after" data-tooltip-pos="end">End</button>
 ```
 
 ### Toggle Switch
@@ -577,6 +570,37 @@ Tani includes a comprehensive set of components:
 <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" id="s1" checked>
     <label class="form-check-label" for="s1">Enable</label>
+</div>
+```
+
+### Offcanvas (zero-JS, all four sides)
+
+A checkbox placed before the panel and backdrop wires open/close + dimming with no scripts:
+
+```html
+<label class="btn btn-primary" for="ocToggle">Open panel</label>
+<input type="checkbox" id="ocToggle" class="offcanvas-check">
+<div class="offcanvas offcanvas-start" id="myPanel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <label class="btn-close" for="ocToggle" aria-label="Close"></label>
+    </div>
+    <div class="offcanvas-body">Panel content…</div>
+</div>
+<div class="offcanvas-backdrop"></div>
+```
+
+Also available via `:target` (legacy) or a `.show` class (for JS apps).
+
+### Toasts (zero-JS dismiss)
+
+```html
+<div class="toast show toast-success">
+    <input type="checkbox" class="toast-hide-check" id="toastHide">
+    <div class="toast-header"><strong>Saved</strong>
+        <label class="toast-close" for="toastHide" aria-label="Dismiss">&times;</label>
+    </div>
+    <div class="toast-body">Everything worked.</div>
 </div>
 ```
 
@@ -637,17 +661,27 @@ Tani supports all modern browsers:
 - ✅ Edge (latest)
 - ✅ Opera (latest)
 
-**Note:** Some advanced features (Scroll-Driven Animations, Container Queries, Anchor Positioning) require modern browsers. Graceful fallbacks are provided for older browsers.
+**Note:** Some advanced features (Scroll-Driven Animations, Anchor Positioning) require very modern browsers and degrade gracefully. Filters/backdrop effects compose via the explicit `.filter` / `.backdrop` classes (same contract as Tailwind).
+
+### Responsive breakpoints
+
+Min-width prefixed utilities follow this table (`sm-flex`, `md-grid-cols-12`, `xl-mt-4`, …):
+
+| Prefix | Min width |
+|--------|-----------|
+| `sm-`  | 640px |
+| `md-`  | 768px |
+| `lg-`  | 992px |
+| `xl-`  | 1200px |
+| `xxl-` | 1400px |
+
+Legacy max-width helpers (`d-sm-none`, `d-xs-block`, applied *below* 768px / 576px) are kept for backwards compatibility but are deprecated — prefer the prefixed system above.
 
 ---
 
 ## 📖 Documentation
 
-Full documentation is available at: **[tanicss.github.io/docs](https://tanicss.github.io/docs)**
-
-### Local Documentation
-
-Open `index.html` in your browser to view the complete documentation with examples.
+Full documentation is included in this repository — open `index.html` in your browser for the complete interactive documentation with live examples, playground, templates and search.
 
 ---
 
@@ -668,6 +702,12 @@ cd Tani
 open index.html
 ```
 
+After editing `dist/css/tani.css`, rebuild the minified file:
+
+```bash
+python3 tools/minify.py dist/css/tani.css dist/css/tani.min.css
+```
+
 ### What to Contribute
 
 - 🐛 Bug fixes
@@ -679,70 +719,12 @@ open index.html
 
 ---
 
-## 🛠 v2.1.1 — Audit Fixes & New Features
+## 📦 Release history (recent)
 
-A full source audit of `dist/css/tani.css` was performed. The following were fixed and added.
-
-### 🐛 Critical bugs fixed
-- **Responsive navbar was unusable:** `.navbar-toggler` was permanently `display:none` (no rule ever re-enabled it on small screens), so the mobile menu could never be opened. Now shown at the `≤991.98px` breakpoint and the nav stacks vertically.
-- **Anchor tooltips never positioned:** `.anchor-tooltip` referenced `position-anchor: --anchor-el`, but `.anchor` never declared `anchor-name: --anchor-el`. Added the anchor name so CSS Anchor Positioning works.
-- **Global paragraph constraint:** `p { max-width: 75ch }` was applied to **every** paragraph (navs, footers, buttons), breaking layouts. Now scoped to `.prose p` / `p.prose` as an opt-in.
-- **Invalid CSS:** `.list-disc` used the non-existent `list-style: type: disc;` → corrected to `list-style-type: disc;`.
-- **Mislabeled sections:** the utility sections were numbered `12`–`19` but physically placed after section `40`. Renumbered to `41`–`48` for accuracy.
-
-### ✨ Missing utilities added
-- **Per-axis spacing** for sizes `6/8/10/12/px` — `.mt-6 … .my-12`, `.pt-6 … .py-px` (only `.m-*` / `.p-*` existed before).
-- **Full opacity scale:** `.opacity-0 … .opacity-100`.
-- **Complete gray palette:** `text-gray-100…900`, `bg-gray-300…800`, `border-gray-100…900`.
-- **New utility families:** `ring-*`, `divide-*`, `space-x/y-*`, `aspect-*`, `object-fit/position-*`, `cursor-*`, `select-*`, `pointer-events-*`, `list-*`, `inset-*`, `backdrop-blur-*`, `transition-*` (property), full `duration-*` scale, `vertical-align` helpers, `line-clamp-*`, `min-h-screen/full`, width/height fractions.
-
-### 🧩 Missing components added
-- **`.list-group`** (+ item, flush, horizontal, color variants, active/disabled).
-- **`.input-group`** (+ text, sm/lg, with seamless radius handling).
-- **`.btn-close`** — unified close button (used by modal/alert/toast).
-- **`.offcanvas`** — zero-JS slide-in panel via `:target`.
-
-### 📱 Responsive system added
-- **Min-width breakpoints:** `sm (640)`, `md (768)`, `lg (992)`, `xl (1200)`, `xxl (1400)` with prefix syntax, e.g. `.md-flex-column`, `.lg-grid-cols-12`, `.xl-mt-4`, `.sm-hide`.
-- Covers display, flex-direction, flex-wrap, justify/align, text-align, floats, grid columns, gaps, margins, paddings, and order.
-
-### 📦 Build
-- `dist/css/tani.min.css` rebuilt (was empty) — now ~120 KB raw, ~15 KB gzip.
-
----
-
-## 🚀 v2.2.0 — Popover, Carousel, Animations & Premium Polish
-
-Tani is now feature-complete enough to be a **zero-JS, zero-build alternative to Tailwind** for most projects.
-
-### ✨ New in v2.2.0
-- **Popover (zero-JS):** `:hover`/`:focus` triggered, 4 directions (`popover-top/-bottom/-start/-end`), glass (`popover-glass`) & gold (`popover-gold`) variants, arrows, ARIA-friendly.
-- **Carousel (zero-JS):** native scroll-snap with anchor arrows/dots + touch swipe; `carousel-cols-2/3/4` for slides-per-view; autoplay marquee variant (`.carousel-auto`) that pauses on hover.
-- **Animations library:** `animate-fade-in`, `animate-slide-up`, `animate-scale-in` (mount), `animate-pulse`, `animate-float`, `animate-bounce`, `animate-spin`, `animate-shimmer`, `.hover-lift` (3D), `.marquee`, `.typewriter`. **All honor `prefers-reduced-motion`.**
-- **Container Queries:** `.cq` wrapper + `.cq-sm/md/lg/xl-*` utilities (breakpoints 400/560/768/1024) — component-based responsiveness.
-- **Subgrid:** `.grid-subgrid`, `.grid-cols-subgrid`, `.grid-rows-subgrid`.
-- **Premium polish:** `.glass` / `.glass-dark` / `.glass-strong`, gold tokens + `.gold-text` / `.gold-text-gradient` / `.gold-border` / `.gold-bg` / `.gold-glow`, gradient-text `.text-gradient` / `.text-gradient-cool` / `.text-gradient-sunset`, `.glow-lg` / `.glow-xl` / `.glow-gold` / `.shadow-colored`, 3D utilities (`.tilt-left/right`, `.rotate-3d-*`, `.perspective`, `.preserve-3d`).
-
-### 📊 Comparison (updated)
-
-| Feature | Tani 2.2 | Tailwind | Bootstrap |
-|---|---|---|---|
-| Zero-JS components | ✅ Full | ⚠️ (needs plugins) | ❌ (JS required) |
-| Zero-build | ✅ | ❌ (needs CLI) | ⚠️ (CDN only) |
-| OKLCH + relative colors | ✅ | ✅ | ❌ |
-| Scroll-driven animations | ✅ | ❌ | ❌ |
-| Container queries (utilities) | ✅ | ✅ | ❌ |
-| Subgrid utilities | ✅ | ✅ | ❌ |
-| Glassmorphism / gold accents | ✅ | ⚠️ manual | ❌ |
-| Carousel / Popover (no JS) | ✅ | ❌ | ❌ |
-| RTL (logical props) | ✅ | ✅ | ✅ |
-| Native dark mode | ✅ | ✅ | ✅ |
-
-### 📦 Migration Guide
-- **No breaking changes.** v2.2.0 only *adds* classes; everything from v2.1.x keeps working.
-- Upgrading from v2.1.x: replace the CSS link / file with `dist/css/tani.css` (or `tani.min.css`) v2.2.0.
-- Upgrading from v2.0 (God Mode): v2.1 added the utility library; v2.2 adds components + polish. No class renames occurred.
-- All new components are opt-in — add the classes only where you need them.
+- **v2.3.1** — full audit: fixed broken animations/gradients/filters, deduplicated conflicting sections, unified spacing scale, real zero-JS navbar/offcanvas/toast wiring, portable test-suite paths
+- **v2.3.0** — completeness release (logical spacing, sizing scale, filters/transforms, gradients, validation, offcanvas, animations, responsive display)
+- **v2.2.0** — Popover, Carousel, Animations, Container Queries, Subgrid, premium polish
+- **v2.1.x** — utility library + first ten zero-JS components
 
 ---
 
@@ -756,7 +738,6 @@ Tani is licensed under the [MIT License](LICENSE).
 
 - Built with modern CSS standards (2026)
 - Inspired by Tailwind CSS, Bootstrap, and Bulma
-- Uses [Prism.js](https://prismjs.com/) for syntax highlighting in documentation
 - Thanks to all contributors who help make Tani better
 
 ---
@@ -765,7 +746,6 @@ Tani is licensed under the [MIT License](LICENSE).
 
 - **GitHub Issues:** [Report a bug](https://github.com/TaniCSS/Tani/issues)
 - **Discussions:** [Ask a question](https://github.com/TaniCSS/Tani/discussions)
-- **Twitter:** [@TaniCSS](https://twitter.com/TaniCSS)
 
 ---
 
@@ -775,7 +755,6 @@ Tani is licensed under the [MIT License](LICENSE).
 
 **If you find Tani useful, please consider giving it a ⭐ star!**
 
-[⭐ Star this repo](https://github.com/TaniCSS/Tani) • [🍔 Fork this repo](https://github.com/TaniCSS/Tani/fork) • [📖 Read the docs](https://tanicss.github.io/docs)
+[⭐ Star this repo](https://github.com/TaniCSS/Tani) • [🍔 Fork this repo](https://github.com/TaniCSS/Tani/fork)
 
 </div>
-```
